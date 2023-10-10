@@ -1,0 +1,85 @@
+﻿<Window x:Class="Hospital.ActualizarPaciente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="ActualizarPaciente" Height="400" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Brown" />
+            <Setter Property="Foreground" Value="White" />
+
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tb_paciente" BorderThickness="0" Grid.Column="0" TextWrapping="Wrap" Text="Actualizar Paciente" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Center" RenderTransformOrigin="0.493,0.52" Background="Beige" Grid.ColumnSpan="3" Margin="125,0,142,0" Height="48"/>
+        <Image Source="/img/actualizar.png" Grid.Row="1" Width="200" Height="214" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,17,0,0" Grid.RowSpan="7"/>
+
+        <Label x:Name="lb_id" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="5.304,0.496" Margin="26,7,0,0" Grid.Column="1" Height="28" Width="51" Grid.RowSpan="2">Id</Label>
+        <TextBox x:Name="txt_id" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="33,0,0,0" Height="27" IsEnabled="False" />
+        
+        <Label x:Name="lb_nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="1.822,0.565" Margin="26,1,0,0" Height="28" Width="56">Nombre</Label>
+        <TextBox x:Name="txt_nombre" Grid.Row="2" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="35,1,0,0" Height="26"></TextBox>
+        
+        <Label x:Name="lb_apellido1" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="26,0,0,0" Height="25" Width="73">1ª Apellido</Label>
+        <TextBox x:Name="txt_apellido1" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="35,0,0,0" Height="25"/>
+        <Label x:Name="lb_apellido2" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="26,0,0,0" Height="28" Width="72">2ª Apellido</Label>
+        <TextBox x:Name="txt_apellido2" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="33,0,0,0" Height="27"/>
+        
+        <Label x:Name="lb_fechaNacimiento" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,3,0,0" RenderTransformOrigin="0.479,0.94" Height="28" Width="111">Fecha Nacimiento</Label>
+        <DatePicker Grid.Row="5" Grid.Column="2" x:Name="dp_fechaNacimiento" DisplayDate="2023-01-01" VerticalAlignment="Top" HorizontalAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="33,4,0,0" Height="27"/>
+        
+        <Label x:Name="lb_telefono" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,0,0,0" Height="28" Width="59">Teléfono</Label>
+        <TextBox x:Name="txt_telefono" Grid.Row="6" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="33,6,0,0" Height="25"/>
+        
+        <Label x:Name="lb_email" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,0,0,0" Height="26" Width="41">Email</Label>
+        <TextBox x:Name="txt_email" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="35,0,0,0" Height="27"/>
+        
+        <Label x:Name="lb_direccion" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="26,0,0,0" Height="26" Width="63">Dirección</Label>
+        <TextBox x:Name="txt_direccion" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="33,0,0,0" Height="27"></TextBox>
+
+        <Button Name="btn_guardar_paciente" Content="Guardar" Background="BlueViolet" Style="{StaticResource RoundedButtonStyle}" Click="btn_guardar_paciente_Click" Margin="112,25,0,0" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="100" Grid.RowSpan="2"/>
+    </Grid>
+</Window>

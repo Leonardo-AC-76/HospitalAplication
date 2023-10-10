@@ -1,0 +1,82 @@
+﻿<Window x:Class="Hospital.ActualizarHospitalizacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="ActualizarHospitalizacion" Height="400" Width="700" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Brown" />
+            <Setter Property="Foreground" Value="White" />
+
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tb_actualizarHospitalizacion" BorderThickness="0" Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Actualizar Hospitalización" Width="508" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Center" RenderTransformOrigin="0.493,0.52" Background="Beige" Grid.ColumnSpan="3" Margin="117,0,0,0"/>
+        <Image Source="/img/actualizar.png" Grid.Row="1" Width="200" Height="224" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,18,0,0" Grid.RowSpan="6"/>
+
+        <Label x:Name="lb_idPaciente" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,12,0,10" VerticalContentAlignment="Center" RenderTransformOrigin="0.229,0.138" Width="98">Id Paciente</Label>
+        <!--<TextBox x:Name="txt_idPaciente" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1"/>-->
+        <ComboBox x:Name="cb_pacientes" ItemsSource="{Binding Nombre}" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="15,0,0,0"/>
+
+        <Label x:Name="lb_idDoctor" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,12,0,10" VerticalContentAlignment="Center" RenderTransformOrigin="0.229,0.138" Width="98">Id Doctor</Label>
+        <!--<TextBox x:Name="txt_idDoctor" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1"/>-->
+        <ComboBox x:Name="cb_doctores" ItemsSource="{Binding Nombre}" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="15,0,0,0"/>
+
+        <Label x:Name="lb_habitacion" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,11,0,11" VerticalContentAlignment="Center" RenderTransformOrigin="0.229,0.138" Width="98">Habitación</Label>
+        <TextBox x:Name="txt_habitacion" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1"/>
+
+        <Label x:Name="lb_cama" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,11,0,10" VerticalContentAlignment="Center" RenderTransformOrigin="0.229,0.138" Width="98">Cama</Label>
+        <TextBox x:Name="txt_cama" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1"/>
+
+        <Label x:Name="lb_fechaIngreso" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,14,0,0">Fecha Ingreso</Label>
+        <DatePicker Grid.Row="5" Grid.Column="2" x:Name="dp_fechaIngreso" DisplayDate="2023-01-01" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="0,11,0,0"/>
+
+        <Label x:Name="lb_fechaAlta" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="51,0,0,0" RenderTransformOrigin="1.3,0.423">Fecha Alta</Label>
+        <DatePicker Grid.Row="6" Grid.Column="2" x:Name="dp_fechaAlta" DisplayDate="2023-01-01" VerticalAlignment="Top" HorizontalAlignment="Center" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="0,11,0,0"/>
+
+        <Button Name="btn_Guardar_hospitalizacion" Content="Guardar" Grid.Row="6" Background="BlueViolet" Style="{StaticResource RoundedButtonStyle}" Click="btn_Guardar_hospitalizacion_Click" Margin="63,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="33"/>
+
+    </Grid>
+</Window>

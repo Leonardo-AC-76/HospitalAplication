@@ -1,0 +1,69 @@
+﻿<Window x:Class="Hospital.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="Hospital" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="130" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Brown" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="35,10, 15, 15" />
+            <Setter Property="Padding" Value="0, 50" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                    <Setter Property="Width" Value="150" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Background="Gray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tb_doctor" BorderThickness="0"  Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" TextWrapping="Wrap" Width="900" Text="Hospital" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Center" Background="Beige" />
+
+        <Image Source="/img/hospital.jpg" Grid.Row="1" Grid.Column="1" Width="800" Height="500" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        <WrapPanel Grid.Column="0" Orientation="Vertical" Height="334" VerticalAlignment="Top" Grid.RowSpan="2" Margin="0,40,0,0">
+            <Button Name="btn_doctor" Content="Doctor" Grid.Column="0" Style="{StaticResource RoundedButtonStyle}" Click="btn_doctor_Click" Margin="35,10, 15 15" />
+            <Button x:Name="btn_paciente" Content="Paciente" Style="{StaticResource RoundedButtonStyle}" Click="btn_paciente_Click" RenderTransformOrigin="1.06,1.801" Margin="35,10, 15 15"/>
+            <Button x:Name="btn_consulta" Content="Consulta" Style="{StaticResource RoundedButtonStyle}" Click="btn_consulta_Click" RenderTransformOrigin="1.06,1.801" Margin="35,10, 15 15"/>
+            <Button x:Name="btn_tratamiento" Content="Tratamiento" Style="{StaticResource RoundedButtonStyle}" Click="btn_tratamiento_Click" RenderTransformOrigin="1.06,1.801" Margin="35,10, 15 15"/>
+            <Button x:Name="btn_Hospitalizacion" Content="Hospitalizacion" Style="{StaticResource RoundedButtonStyle}" Click="btn_Hospitalizacion_Click" RenderTransformOrigin="0.369,2.168" Margin="35,10, 15 15"/>
+            <Button x:Name="btn_enfermeros" Content="Enfermeros" Style="{StaticResource RoundedButtonStyle}" Click="btn_enfermeros_Click" />
+        </WrapPanel>
+
+        <Button Name="btn_salir" Content="Salir" Grid.Row="3" Grid.Column="3" Background="Red" Style="{StaticResource RoundedButtonStyle}" Click="btn_salir_Click" Margin="0,0,25,0" />
+
+
+    </Grid>
+</Window>

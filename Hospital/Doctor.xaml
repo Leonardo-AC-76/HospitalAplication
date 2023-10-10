@@ -1,0 +1,84 @@
+﻿<Window x:Class="Hospital.Doctor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="Doctor" Height="600" Width="900" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Brown" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tb_doctor" BorderThickness="0" Grid.Column="1"  Grid.ColumnSpan="4" HorizontalAlignment="Center" TextWrapping="Wrap" Width="900" Text="Doctor" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Center" Background="Beige"/>
+
+        <Image Source="/img/doctor1.jpg" Grid.Column="0" Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,29,0,0" Grid.RowSpan="3"/>
+
+        <Label x:Name="lb_id" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="5.304,0.496" Margin="34,0,0,0" Grid.Column="1">Id</Label>
+        <TextBox x:Name="txt_id" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="130,0,0,0" />
+
+        <Label x:Name="lb_nombre" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="2.218,0.517" Margin="16,35,0,0" Grid.Column="1">Nombre</Label>
+        <TextBox x:Name="txt_nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="130,34,0,0" ></TextBox>
+
+        <Label x:Name="lb_apellido1" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Grid.Column="1">1ª Apellido</Label>
+        <TextBox x:Name="txt_apellido1" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="130,0,0,0"></TextBox>
+
+        <Label x:Name="lb_apellido2" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Grid.Column="1">2ª Apellido</Label>
+        <TextBox x:Name="txt_apellido2" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="200" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="130,0,0,0"></TextBox>
+
+        <Label x:Name="lb_especialidades" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Grid.Column="1">Especialidad</Label>
+        <ComboBox x:Name="cb_especialidades" ItemsSource="{Binding especialidad}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Especialidad" Width="200" Padding="5" Opacity="0.5" SelectedIndex="0" BorderThickness="0,0,0,1" Margin="130,0,0,0"/>
+
+        <Button Name="btn_insertar_doctor" Content="Insertar" Grid.Row="6" Grid.Column="1" Background="#FF7979A9" Style="{StaticResource RoundedButtonStyle}" Click="btn_insertar_doctor_Click" Margin="210,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button Name="btn_mostrar_doctor" Content="Mostrar" Grid.Row="3" Background="#FF8D3EB3"  Style="{StaticResource RoundedButtonStyle}" Click="btn_mostrar_doctor_Click" Margin="49,64,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="2" Grid.RowSpan="2" Width="100" />
+        <Button Name="btn_salir_doctor" Grid.Column="0" Content="Volver" Background="Red" Style="{StaticResource RoundedButtonStyle}" Click="btn_salir_doctor_Click" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="36,0,0,0"/>
+
+        <TextBox x:Name="tb_listaDoctor" BorderThickness="0" TextWrapping="Wrap" Text="Listado de Doctores" FontWeight="Bold" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Background="Beige" RenderTransformOrigin="1.013,1.994" Grid.Column="2" Margin="24,0,24,0" Grid.Row="1"/>
+        <ListBox x:Name="lct_doctor" Grid.Column="2"  Margin="0,60,0,0" HorizontalAlignment="Center" Background="#FF8D3EB3" VerticalAlignment="Top" Grid.Row="1" Width="252" Height="149" Foreground="White" Grid.RowSpan="3"/>
+        <Button x:Name="btn_borrar_doctor" Grid.Column="2" Content="Borrar" HorizontalAlignment="Left" Margin="49,63,0,0" Grid.Row="4" VerticalAlignment="Top"  Background="Red" Style="{StaticResource RoundedButtonStyle}" Click="btn_borrar_doctor_Click" Grid.RowSpan="2" Width="100"/>
+
+        <Button Name="btn_actualizar_Doctor" Content="Actualizar" Background="Blue" Style="{StaticResource RoundedButtonStyle}" Click="btn_actualizar_Doctor_Click" Grid.Column="2"  Grid.Row="4" Margin="49,21,0,0" HorizontalAlignment="Left" Width="100" VerticalAlignment="Top" Height="30" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,88 @@
+﻿<Window x:Class="Hospital.Paciente"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hospital"
+        mc:Ignorable="d"
+        Title="Paciente" Height="650" Width="1200" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="80" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="Brown" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tb_paciente" BorderThickness="0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="Paciente" Width="900" FontWeight="Bold" FontSize="36" VerticalAlignment="Center" TextAlignment="Center" RenderTransformOrigin="0.493,0.52" Background="Beige"/>
+
+        <Image Source="/img/paciente.jpg" Grid.Column="0" Grid.Row="3" Width="200" Height="150" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="26,10,0,0" Grid.RowSpan="3"/>
+
+        <Label x:Name="lb_id" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="5.304,0.496" Margin="23,33,0,0" Grid.Column="1">Id</Label>
+        <TextBox x:Name="txt_id" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,37,0,0" Grid.RowSpan="2" />
+        <Label x:Name="lb_nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" RenderTransformOrigin="1.822,0.565" Margin="23,0,0,0">Nombre</Label>
+        <TextBox x:Name="txt_nombre" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,0,0,0"></TextBox>
+        <Label x:Name="lb_apellido1" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,71,0,0" Grid.RowSpan="2">1ª Apellido</Label>
+        <TextBox x:Name="txt_apellido1" Grid.Row="2" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,70,0,0" Grid.RowSpan="2"></TextBox>
+        <Label x:Name="lb_apellido2" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,0,0,0">2ª Apellido</Label>
+        <TextBox x:Name="txt_apellido2" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,0,0,0"/>
+        <Label x:Name="lb_fechaNacimiento" Grid.Row="4" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,55,0,0" RenderTransformOrigin="0.479,0.94" Height="27" Grid.RowSpan="2">Fecha Nacimiento</Label>
+        <DatePicker Grid.Row="4" Grid.Column="1" x:Name="dp_fechaNacimiento" DisplayDate="2023-01-01" VerticalAlignment="Top" HorizontalAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,55,0,0" Height="27" Grid.RowSpan="2"/>
+        <Label x:Name="lb_telefono" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,38,0,0">Teléfono</Label>
+        <TextBox x:Name="txt_telefono" Grid.Row="5" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,38,0,0"/>
+        <Label x:Name="lb_email" Grid.Row="6" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Margin="23,27,0,0">Email</Label>
+        <TextBox x:Name="txt_email" Grid.Row="6" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,27,0,0"/>
+        <Label x:Name="lb_direccion" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" Margin="15,0,0,0">Dirección</Label>
+        <TextBox x:Name="txt_direccion" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" TextAlignment="Left" Text="" Width="150" Padding="5" Opacity="0.5" BorderThickness="0,0,0,1" Margin="150,0,0,0"></TextBox>
+
+        <Button Name="btn_insertar_paciente" Content="Insertar" Background="BlueViolet" Style="{StaticResource RoundedButtonStyle}" Click="btn_insertar_paciente_Click" Margin="185,76,0,0" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2"/>
+        <Button Name="btn_mostrar_paciente" Content="Mostrar" Background="Green" Style="{StaticResource RoundedButtonStyle}" Click="btn_mostrar_paciente_Click" Margin="45,7,0,0" Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button Name="btn_salir_paciente" Content="Volver" Background="Red" Style="{StaticResource RoundedButtonStyle}" Click="btn_salir_paciente_Click" Margin="86,17,134,17" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Name="btn_actualizar_paciente" Content="Actualizar" Background="Blue" Style="{StaticResource RoundedButtonStyle}" Click="btn_actualizar_paciente_Click"  Height="30"  Grid.Column="2" Grid.Row="6" Margin="278,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="tb_listapaciente" BorderThickness="0" TextWrapping="Wrap" Text="Listado de Pacientes" FontWeight="Bold" FontSize="20" TextAlignment="Center" VerticalAlignment="Top" Background="Beige" RenderTransformOrigin="1.013,1.994" Grid.Column="2" Margin="100,0,95,0" Grid.Row="2"/>
+        <ListBox x:Name="lct_paciente" Grid.Column="2" HorizontalAlignment="Center" Background="#FF167F16" Grid.Row="2" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}" Height="194" Width="510" Margin="0,37,0,0" Grid.RowSpan="4"></ListBox>
+
+        <Button x:Name="btn_borrar_paciente" Grid.Column="2" Content="Borrar" HorizontalAlignment="Right" Margin="0,7,45,0" Grid.Row="6" VerticalAlignment="Top" Background="Red" Style="{StaticResource RoundedButtonStyle}" Click="btn_borrar_paciente_Click"/>
+
+    </Grid>
+</Window>
